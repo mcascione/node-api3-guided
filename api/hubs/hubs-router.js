@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
     .catch(next);
 });
 
-router.get("/:id", checkHubID, (req, res, next) => {
+router.get("/:id", checkHubID, (req, res, next) => {   // eslint-disable-line
   res.json(req.hub);
 });
 
@@ -60,8 +60,7 @@ router.post("/:id/messages", checkHubID, (req, res, next) => {
     .catch(next);
 });
 
-router.use((error, req, res, next) => {
-  // eslint-disable-line
+router.use((error, req, res, next) => {   // eslint-disable-line
   res.status(error.status || 500).json({
     message: error.message,
     customMessage: "Something bad happened inside the hubs router",
